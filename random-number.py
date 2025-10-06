@@ -6,15 +6,17 @@ playerWin = 0
 #setting up parameters for options and choice randomization
 optionsList = ['rock', 'paper', 'scissors']
 
-#display computer choice temporarily for debugging
-print(randomChoice)
+print("Welcome to Rock, Paper, Scissors!")
+print("Best of 3 wins.\n")
 
+#setting up while loop to run to best of 3
 while playerWin < 3 and computerWin < 3:
-
+  #initializing randomChoice 
   randomChoice = random.choice(optionsList)
-
+  #gameplay while loop
   while True:
-      userInput = input("What do you choose? Rock, Paper, or Scissors?").strip().lower()
+      #user inputs choice
+      userInput = input("What do you choose? Rock, Paper, or Scissors? ").strip().lower()
       if userInput in optionsList:
         playerChoice = userInput
         break
@@ -37,11 +39,13 @@ while playerWin < 3 and computerWin < 3:
   else:
     print("Computer +1")
     computerWin += 1
-
+  #game score output
   print(f"\nSCORE: Player {playerWin} - Computer {computerWin}")
+#displays who wins after reaching 3 points
 if playerWin == 3:
   print("-" * 20)
   print("Player wins!")
 elif computerWin == 3:
+  print("-" * 20)
   print("Computer wins!")
 
