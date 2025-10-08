@@ -7,7 +7,7 @@ Each of these programs is a small way to test my knowledge and understanding of 
       user input.
 2. Rock, Paper, Scissors
     - This program plays rock, paper, scissors with the user. The program has a
-      score output that will show the user they're total points vs. the computer's
+      score output that will show the user their total points vs. the computer's
       total points. The winner is determined by who can get three points first.
       "Best of three" rules. This program highlights selection trees, comparison
       against a random value, and variable increasing.
