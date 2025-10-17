@@ -24,3 +24,8 @@ def decrypt(text, shift):
   
 encrypted_text = encrypt('freeCodeCamp', 3)
 print(encrypted_text)
+
+#Code to decrypt message
+#encrypted_text = 'Pbhentr vf sbhaq va hayvxryl cynprf.'
+#decrypted_text = decrypt(encrypted_text, 13)
+#print(decrypted_text)
