@@ -1,0 +1,20 @@
+full_dot = '●'
+empty_dot = '○'
+
+def create_character():
+    character_name = ''
+    strength = 0
+    intelligence = 0
+    charisma = 0
+    return character_name + 'Stats: ' + strength + intelligence + charisma
+
+    if not isinstance(character_name, str):
+        print("The character name should be a string.")
+    if character_name > 10:
+        print("The character name is too long.")
+    if ' ' in character_name:
+        print("The character name should not contain spaces.")
+    else:
+        print("That is not a valid input. Try again.")
+
+    
