@@ -15,3 +15,17 @@ Each of these programs is a small way to test my knowledge and understanding of 
     - This program tells the user, based on their input, how strong or weak a
       password is based on a set list of criteria. This program highlights
       parameter checking against what a user has input and selection trees.
+4. Caesar Cipher
+       - This program encrypts and decrypts hidden messages using a cipher. This
+         highlights the use of translation tables and creation of functions.
+5. RPG Build (Test and Personal)
+       - This program is a basic RPG character creator utilizing the stats of
+         strength, intelligence, and charisma. Seven points must be allotted in
+         order for the program to continue. This program highlights the use of
+         lists, checks in both strings and integers, and displaying stats using
+         concatenation, variables, and special strings.
+6. Pin Extractor
+       - This program creates a pin from different poems. The pin is determined
+         by the length of the word chosen in each line. Three poems are included
+         in the program to display different types of codes. This program
+         highlights the use of lists, splitting, enumerating, and appending.
