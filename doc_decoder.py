@@ -1,6 +1,4 @@
 import requests
-import csv
-from io import StringIO
 from bs4 import BeautifulSoup
 
 def get_raw_data(doc_url_1):
@@ -12,6 +10,9 @@ def get_raw_data(doc_url_1):
     print(f"Error fetching data: {e}")
     return None
 
+# Function to get information from the Google Doc table
+# and change it into readable info for the program to
+# display in a grid
 def parse_data_to_grid_map(html_data):
   if not html_data:
     return None, 0, 0
@@ -31,18 +32,15 @@ def parse_data_to_grid_map(html_data):
 
   for row_num, tr in enumerate(rows):
     cells = tr.find_all('td')
-
     if len(cells) < 3:
       continue
-
     try:
       x = int(cells[0].get_text().strip())
       char = cells[1].get_text().strip()
-      char = char.replace('\xa0', '').replace('\n', '')
+      char = char.replace('\xa0', '').replace('\n', '') # makes sure char is stripped fully
       if not char:
         char = ' '
       y = int(cells[2].get_text().strip())
-
 
       if x > max_x: max_x = x
       if y > max_y: max_y = y
@@ -54,9 +52,10 @@ def parse_data_to_grid_map(html_data):
     except (ValueError, IndexError):
       print("Error")
       continue
-    
+
   return grid_map, max_x + 1, max_y + 1
 
+# Function to decode the message in the Google Doc 
 def decode_secret_message(doc_url):
   html_data = get_raw_data(doc_url)
   grid_map, grid_width, grid_height = parse_data_to_grid_map(html_data)
@@ -65,9 +64,7 @@ def decode_secret_message(doc_url):
   if not grid_map:
     return dictionary
 
-  print("Output: ")
-
-  for y in range(grid_height -1, -1, -1):
+  for y in range(grid_height -1, -1, -1): # grid altered to align letter correctly
     line = []
     for x in range(grid_width):
       if x in grid_map and y in grid_map[x]:
@@ -77,5 +74,6 @@ def decode_secret_message(doc_url):
         line.append(' ')
     print("".join(line))
 
-#get_raw_data("https://docs.google.com/document/d/e/2PACX-1vTMOmshQe8YvaRXi6gEPKKlsC6UpFJSMAk4mQjLm_u1gmHdVVTaeh7nBNFBRlui0sTZ-snGwZM4DBCT/pub")
-decode_secret_message("https://docs.google.com/document/d/e/2PACX-1vTMOmshQe8YvaRXi6gEPKKlsC6UpFJSMAk4mQjLm_u1gmHdVVTaeh7nBNFBRlui0sTZ-snGwZM4DBCT/pub")
+# Sample Doc used as the argument
+decode_secret_message("https://docs.google.com/document/d/e/2PACX-1vQiVT_Jj04V35C-YRzvoqyEYYzdXHcRyMUZCVQRYCu6gQJX7hbNhJ5eFCMuoX47cAsDW2ZBYppUQITr/pub")
+
